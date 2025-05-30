@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" class="preloader-lock">
+<head>
+<script>
+  document.documentElement.classList.add('preloader-lock');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Terms</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body class="locked">
+<div id="site-preloader" class="">
+  <div class="preloader-spinner-wrapper">
+    <div class="custom-spinner">
+      <div></div>
+    </div>
+    <img src="../assets/logo.png" alt="RM Tutoring Services Logo" class="preloader-logo" />
+  </div>
+</div>
+<header class="sticky">
+<a href="../index.html"><img alt="RM Tutoring Services Logo" class="logo" src="../assets/logo.png"/></a>
+<button class="hamburger" onclick="toggleMenu()" data-ignore-preloader>☰</button>
+<nav id="nav-menu">
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="https://scheduling.rmtutoringservices.com">Scheduling</a></li>
+<li><a href="https://packages.rmtutoringservices.com">Packages</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section class="content"><h1>Terms</h1><p>This is the terms page content.</p></section>
+</main>
+<footer>
+<p>© 2025 RM Tutoring Services.</p>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="about.html">About</a>
+<a href="terms-of-service.html">Terms of Service</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="contact.html">Contact</a>
+</div>
+</footer>
+<script src="../preloader.js"></script>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("open");
+  }
+</script>
+</body>
+</html>

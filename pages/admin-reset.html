@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="preloader-lock">
+<head>
+<script>
+  document.documentElement.classList.add('preloader-lock');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reset Ticket</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="locked">
+<div id="site-preloader" class="">
+  <div class="preloader-spinner-wrapper">
+    <div class="custom-spinner">
+      <div></div>
+    </div>
+    <img src="../assets/logo.png" alt="RM Tutoring Services Logo" class="preloader-logo" />
+  </div>
+</div>
+  <header>
+    <a href="../index.html"><img src="../assets/logo.png" alt="RM Tutoring Logo" class="logo" /></a>
+    <button class="hamburger" onclick="toggleMenu()" data-ignore-preloader>☰</button>
+    <nav id="nav-menu" class="nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="scheduling.rmtutoringservices.com">Scheduling</a></li>
+        <li><a href="packages.rmtutoringservices.com">Packages</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h2>Reset Ticket Counter</h2>
+    <form id="reset-form">
+      <label for="token">Enter admin token:</label>
+      <input type="password" id="token" required />
+      <button type="submit">Reset</button>
+    </form>
+    <p id="response" style="margin-top:1rem;"></p>
+  </main>
+
+  <footer>
+<p>© 2025 RM Tutoring Services.</p>
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="about.html">About</a>
+<a href="terms-of-service.html">Terms of Service</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="contact.html">Contact</a>
+</div>
+</footer>
+<script src="../preloader.js"></script>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("open");
+  }
+</script>
+</body>
+</html>
