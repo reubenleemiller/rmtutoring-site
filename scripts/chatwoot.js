@@ -1,5 +1,6 @@
+  window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Chat with us"};
   (function(d,t) {
-    var BASE_URL="https://chatwoot-production-58ea.up.railway.app";
+    var BASE_URL="https://chat.rmtutoringservices.com";
     var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=BASE_URL+"/packs/js/sdk.js";
     g.defer = true;
