@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Admin | RM Tutoring Services</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+  <link href="../style.css" rel="stylesheet" />
+</head>
+<body class="locked">
+<div id="site-preloader" class="">
+  <div class="preloader-spinner-wrapper">
+    <div class="custom-spinner"><div></div></div>
+    <img src="../assets/logo.png" alt="RM Tutoring Services Logo" class="preloader-logo" />
+  </div>
+</div>
+
+<header class="sticky">
+  <a href="../index.html"><img alt="RM Tutoring Services Logo" class="logo" src="../assets/logo.png"/></a>
+  <button class="hamburger" onclick="toggleMenu()" data-ignore-preloader>☰</button>
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="https://rmtutoringservices.com">Home</a></li>
+      <li><a href="https://scheduling.rmtutoringservices.com">Scheduling</a></li>
+      <li><a href="https://packages.rmtutoringservices.com">Packages</a></li>
+      <li><a href="https://student.rmtutoringservices.com">Dashboard</a></li>
+      <li><a href="https://rmtutoringservices.com/pages/about.html">About</a></li>
+      <li><a href="https://rmtutoringservices.com/pages/contact.html">Contact</a></li>
+      <li class="dropdown">
+        <a href="#">More</a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-submenu">
+            <a href="#">Study Guides</a>
+            <ul class="submenu" style="display:none;">
+              <li><a href="https://cal3a.study.rmtutoringservices.com/">Calculus 3A</a></li>
+              <li><a href="https://cal3b.study.rmtutoringservices.com/">Calculus 3B</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a href="#">Tools</a>
+            <ul class="submenu" style="display:none;">
+              <li><a href="https://mc.study.rmtutoringservices.com">Multiple Choice Study Tool</a></li>
+              <li><a href="https://projectile-motion.tools.rmtutoringservices.com/">Projectile Motion Tool</a></li>
+              <li><a href="https://riemann-sums.tools.rmtutoringservices.com/">Riemann Sums Tool</a></li>
+              <li><a href="https://stokes-theorem.tools.rmtutoringservices.com/">Stokes' Theorem Tool</a></li>
+              <li><a href="https://newtons-law-of-cooling.tools.rmtutoringservices.com/">Newton's Law of Cooling Tool</a></li>
+              <li><a href="https://coupled-harmonic-osscilator.tools.rmtutoringservices.com/">Coupled Harmonic Oscillator Tool</a></li>
+              <li><a href="https://graph.tools.rmtutoringservices.com/">Graph Generator Tool</a></li>
+              <li><a href="https://jeopardy.rmtutoringservices.com/">Jeopardy Review Tool</a></li>
+              <li><a href="https://analysis.rmtutoringservices.com/">Item Analysis Tool</a></li>
+            </ul>
+          </li>
+          <li><a href="https://rmtutoringservices.com/pages/resource-center.html">Resource Center</a></li>
+          <li><a href="https://rmtutoringservices.com/pages/articles.html">Articles</a></li>
+          <li class="dropdown-submenu">
+            <a href="#">Policies</a>
+            <ul class="submenu" style="display:none;">
+              <li><a href="https://rmtutoringservices.com/pages/privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="https://rmtutoringservices.com/pages/terms-of-service.html">Terms of Service</a></li>
+              <li><a href="https://rmtutoringservices.com/pages/refund-policy.html">Refund Policy</a></li>
+            </ul>
+          </li>
+          <li><a href="https://video.rmtutoringservices.com/">RM Tutoring Video</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main class="content article-admin-page">
+  <section class="article-admin-hero">
+    <p class="articles-kicker">Secure article manager</p>
+    <h1>Article Admin</h1>
+    <p>Create, format, publish, draft, and remove articles from the RM Tutoring article library.</p>
+  </section>
+
+  <form id="article-admin-login" class="article-admin-login">
+    <label>
+      <span>Admin password</span>
+      <input id="admin-password" type="password" required autocomplete="current-password" placeholder="Enter admin password" />
+    </label>
+    <button type="submit">
+      <span>Unlock Articles</span>
+      <span id="admin-login-spinner" class="article-tiny-spinner article-button-spinner" hidden aria-hidden="true"></span>
+    </button>
+    <p id="admin-login-status" class="article-admin-status-line" aria-live="polite"></p>
+  </form>
+
+  <section id="article-admin-workspace" class="article-admin-workspace" hidden>
+    <div id="article-admin-widget-loader" class="article-widget-loader article-admin-loader" hidden aria-live="polite">
+      <span class="article-widget-spinner" aria-hidden="true"></span>
+      <span>Syncing articles...</span>
+    </div>
+
+    <div class="article-admin-topbar">
+      <button id="article-new-btn" type="button">
+        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+        New Article
+      </button>
+      <button id="article-export-btn" class="button-secondary" type="button">
+        <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+        <span>Export JSON</span>
+        <span id="article-export-spinner" class="article-tiny-spinner article-button-spinner" hidden aria-hidden="true"></span>
+      </button>
+      <a href="articles.html" class="article-admin-preview-link">
+        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        View Library
+      </a>
+      <button id="article-admin-logout" class="button-secondary" type="button">
+        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        Lock
+      </button>
+    </div>
+
+    <div class="article-admin-grid">
+      <aside class="article-admin-list-panel">
+        <h2>Articles</h2>
+        <div id="article-admin-list" class="article-admin-list"></div>
+      </aside>
+
+      <form id="article-editor-form" class="article-editor-panel">
+        <input id="article-id" type="hidden" />
+
+        <div class="article-editor-row">
+          <label>
+            <span>Title</span>
+            <input id="article-title" type="text" required placeholder="Example: How to Study for Calculus" />
+          </label>
+          <label>
+            <span>Slug</span>
+            <input id="article-slug" type="text" placeholder="Optional, generated from title" />
+          </label>
+        </div>
+
+        <label>
+          <span>Excerpt</span>
+          <textarea id="article-excerpt" rows="3" maxlength="260" placeholder="Short summary shown on the article card"></textarea>
+        </label>
+
+        <div class="article-editor-row">
+          <label>
+            <span>Category</span>
+            <input id="article-category" type="text" value="Math Learning" />
+          </label>
+          <label>
+            <span>Tags</span>
+            <input id="article-tags" type="text" placeholder="calculus, limits, exams" />
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="article-status">
+              <option value="published">Published</option>
+              <option value="draft">Draft</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="article-toolbar" aria-label="Article formatting toolbar">
+          <button type="button" data-editor-command="bold" title="Bold">
+            <i class="fa-solid fa-bold" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-editor-command="italic" title="Italic">
+            <i class="fa-solid fa-italic" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-editor-command="insertUnorderedList" title="Bulleted list">
+            <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
+          </button>
+          <button type="button" data-editor-command="insertOrderedList" title="Numbered list">
+            <i class="fa-solid fa-list-ol" aria-hidden="true"></i>
+          </button>
+          <button type="button" id="article-inline-math-btn" title="Insert inline LaTeX">
+            <i class="fa-solid fa-square-root-variable" aria-hidden="true"></i>
+          </button>
+          <button type="button" id="article-display-math-btn" title="Insert display LaTeX">
+            <i class="fa-solid fa-superscript" aria-hidden="true"></i>
+          </button>
+          <button type="button" id="article-image-btn" title="Upload image">
+            <i class="fa-solid fa-image" aria-hidden="true"></i>
+            <span id="article-image-spinner" class="article-tiny-spinner article-button-spinner" hidden aria-hidden="true"></span>
+          </button>
+          <select id="article-format-block" aria-label="Text style">
+            <option value="">Text style</option>
+            <option value="p">Paragraph</option>
+            <option value="h2">Heading</option>
+            <option value="h3">Subheading</option>
+            <option value="blockquote">Quote</option>
+          </select>
+          <label class="article-toolbar-toggle">
+            <input id="article-image-as-figure" type="checkbox" checked />
+            <span>Figure</span>
+          </label>
+          <label class="article-toolbar-field">
+            <span class="sr-only">Image caption</span>
+            <input id="article-image-caption" type="text" placeholder="Optional image caption or figure label" />
+          </label>
+          <input id="article-image-upload" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden />
+        </div>
+
+        <label>
+          <span>Article body</span>
+          <div id="article-content-editor" class="article-content-editor" contenteditable="true" role="textbox" aria-multiline="true">
+            <p>Write the article body here.</p>
+          </div>
+        </label>
+
+        <section class="article-editor-preview" aria-live="polite">
+          <div class="article-editor-preview-header">
+            <h3>Article Preview</h3>
+            <span id="article-preview-status">KaTeX ready</span>
+          </div>
+          <div id="article-content-preview" class="article-reader-content article-content-preview"></div>
+        </section>
+
+        <div class="article-editor-actions">
+          <button type="submit">
+            <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+            <span>Save Article</span>
+            <span id="article-save-spinner" class="article-tiny-spinner article-button-spinner" hidden aria-hidden="true"></span>
+          </button>
+          <p id="article-save-status" class="article-admin-status-line" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script src="../scripts/article-ui.js"></script>
+<script src="../scripts/article-admin.js"></script>
+<script src="../scripts/preloader.js"></script>
+<script src="../scripts/submenu.js"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("open");
+  }
+</script>
+</body>
+</html>

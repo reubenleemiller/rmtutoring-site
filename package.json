@@ -1,0 +1,10 @@
+{
+  "name": "rmtutoring-site",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google-cloud/storage": "^7.19.0",
+    "@netlify/blobs": "^10.7.9",
+    "node-fetch": "^3.3.2",
+    "stripe": "^18.2.1"
+  }
+}
